@@ -3,7 +3,7 @@
  *  ZDKUIUtil.h
  *  SupportSDK
  *
- *  Created by Zendesk on 15/10/2014.  
+ *  Created by Zendesk on 15/10/2014.
  *
  *  Copyright (c) 2014 Zendesk. All rights reserved.
  *
@@ -143,7 +143,7 @@
 
 
 /**
- *  Checks if the host app is a landscape only app and will enable or disable the attachments 
+ *  Checks if the host app is a landscape only app and will enable or disable the attachments
  *  button accordingly.
  *
  *  @param viewController ViewController to check to enable attachments
@@ -165,7 +165,10 @@ CGRectMakeCenteredInScreen(CGFloat width, CGFloat height)
 {
     CGRect screen = [UIScreen mainScreen].bounds;
 
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    #pragma clang diagnostic pop
 
     CGRect rect;
 
@@ -221,7 +224,10 @@ CGCenterRectInRect(CGRect rect, CGRect inRect)
 CG_INLINE BOOL
 ZDKUIIsLandscape()
 {
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    #pragma clang diagnostic pop
     return UIInterfaceOrientationIsLandscape(orientation);
 }
 
@@ -261,4 +267,3 @@ ZDKUIOriginInWindow(UIView *view)
     CGPoint point = [view convertPoint:view.bounds.origin toView:superView];
     return point;
 }
-
