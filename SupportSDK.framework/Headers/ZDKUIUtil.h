@@ -3,7 +3,7 @@
  *  ZDKUIUtil.h
  *  SupportSDK
  *
- *  Created by Zendesk on 15/10/2014.  
+ *  Created by Zendesk on 15/10/2014.
  *
  *  Copyright (c) 2014 Zendesk. All rights reserved.
  *
@@ -165,7 +165,10 @@ CGRectMakeCenteredInScreen(CGFloat width, CGFloat height)
 {
     CGRect screen = [UIScreen mainScreen].bounds;
 
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    #pragma clang diagnostic pop
 
     CGRect rect;
 
@@ -221,7 +224,10 @@ CGCenterRectInRect(CGRect rect, CGRect inRect)
 CG_INLINE BOOL
 ZDKUIIsLandscape()
 {
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    #pragma clang diagnostic pop
     return UIInterfaceOrientationIsLandscape(orientation);
 }
 
